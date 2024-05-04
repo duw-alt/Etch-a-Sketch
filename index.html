@@ -8,17 +8,25 @@
 </head>
 <body>
 
-  <button class="ask-size" onclick="askSize()">Grid size</button>
-  <button class="color" onclick="toRandomColor()">Pretty Colors</button>
-  <button class="black" onclick="toBlack()">Black</button>
-  <button class="clear" onclick="clearGrid()">Clear</button>
+  <h1>Etch-a-Sketch</h1>
 
+  <div class="wrap">
 
-  <div class="container"></div>
-  
-  <p>
-    <span>Current grid size is: 16 x 16</span>
-  </p>
+    <div class="buttons-wrap">
+      <button class="black" onclick="toBlack()">Black</button>
+      <button class="color" onclick="toRandomColor()">Pretty Colors</button>
+      <button class="ask-size" onclick="askSize()">Grid size</button>
+      <button class="clear" onclick="clearGrid()">Clear</button>
+      
+      <p>
+        <span>Current grid size is: 16 x 16</span>
+      </p>
+
+    </div>
+
+    <div class="container"></div>
+
+  </div>
 
 
 

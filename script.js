@@ -1,33 +1,27 @@
 const container = document.querySelector('.container')
-const para = container.querySelector('p')
 let displayGridSize = document.querySelector('span');
 
 let blackDrawing = true;
 let colorDrawing = false;
 
-
+let gridSize = 16; 
 
 function askSize() {
-  container.innerHTML = '';
-  let getGridSize = prompt('Enter the grid size (1-100):')
-  let gridSize = 16;
-  
-  
-  if (getGridSize <= 100 && getGridSize > 0) {
-    gridSize = getGridSize;
-    createGrid(gridSize)
-    displayGridSize.textContent = `Current grid size is ${gridSize} x ${gridSize}`
-    para.appendChild(displayGridSize)
-  } 
-  else {
-    alert('Please enter a valid value.')
-    return askSize()
+  let newSize = prompt('Enter the grid size (1-100):');
+
+  if (newSize === null || newSize === '') {
+    return; 
   }
 
-  if(getGridSize === null || getGridSize === ""){
-    createGrid(gridSize)
-    return null
+  if (newSize >= 1 && newSize <= 100) {
+    container.innerHTML = '';
+    gridSize = newSize;
+    createGrid(newSize);
+    displayGridSize.textContent = `Current grid size is: ${newSize} x ${newSize}`;
   } 
+  else {
+    alert('Please enter a valid value (1-100).');
+  }
 }
 
 
@@ -68,7 +62,7 @@ function clearGrid() {
   createGrid(gridSize)
 }
 
-createGrid(16) 
+createGrid(gridSize) 
 
 
 
