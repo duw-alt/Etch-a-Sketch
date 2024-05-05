@@ -3,6 +3,7 @@ let displayGridSize = document.querySelector('span');
 
 let blackDrawing = true;
 let colorDrawing = false;
+let eraser = false;
 
 let gridSize = 16; 
 
@@ -41,11 +42,19 @@ function getRandomColor() {
 function toRandomColor() {
   colorDrawing = true;
   blackDrawing = false;
+  eraser = false;
 }
 
 function toBlack() {
   colorDrawing = false;
   blackDrawing = true;
+  eraser = false;
+}
+
+function toWhite() {
+  colorDrawing = false;
+  blackDrawing = false;
+  eraser = true;
 }
 
 
@@ -53,8 +62,16 @@ container.addEventListener('mouseover', (event) => {
   const hoveredElement = event.target;
   
   if (hoveredElement !== container) {
-    hoveredElement.style.backgroundColor = colorDrawing ? getRandomColor() : 'black';
-  }
+
+    if (colorDrawing) {
+      hoveredElement.style.backgroundColor = getRandomColor() 
+    } else if (blackDrawing) {
+      hoveredElement.style.backgroundColor = 'black'
+    } else {
+      hoveredElement.style.backgroundColor = 'white'
+    }
+  } 
+
 });
 
 function clearGrid() {
