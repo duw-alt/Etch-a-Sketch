@@ -33,6 +33,7 @@ h1 {
   width: 600px;
   height: 600px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.294);
+  margin-bottom: 20px;
 }
 
 .container div {
